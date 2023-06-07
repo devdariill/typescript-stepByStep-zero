@@ -110,3 +110,11 @@ const address2: Address = {
   planet: 'Earth',
   country: 'USA',
 }
+
+function createAddress(){
+  return{
+    planet: 'Earth',
+    country: 'USA',
+  }
+}
+type Address2 = ReturnType<typeof createAddress>
