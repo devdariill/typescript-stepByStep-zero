@@ -38,9 +38,9 @@ const restar: (a:number, b:number) => number = (a,b) => a - b
 const throwError = (message:string):never => {
   throw new Error(message)
 }
-
+type IdManual = `${string}-${string}-${string}-${string}-${string}`
 type Hero = {
-  readonly id?: number,
+  readonly id?: IdManual,
   name: string,
   age: number,  
   isActive?: boolean
@@ -53,7 +53,8 @@ let hero:Hero={
 
 function createHero(hero:Hero):Hero{
   const {name, age} = hero
-  return{ name, age, isActive: true }
+  const id = crypto.randomUUID()
+  return{id, name, age, isActive: true }
 }
 
 const newHero={
@@ -63,4 +64,9 @@ const newHero={
 const thor = Object.freeze(createHero(newHero))
 // const thor = createHero({name:'Thor',age:45})
 
-hero.id=50000
+// hero.id=50000
+
+type HexeColor = `#${string}`
+
+const color : HexeColor = '#fff'
+const color2 : HexeColor = 'fff'
