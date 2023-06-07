@@ -33,3 +33,8 @@ fn4(sayHi)
 
 const sumar = (a:number, b:number):number => a + b
 const restar: (a:number, b:number) => number = (a,b) => a - b
+
+// never
+const throwError = (message:string):never => {
+  throw new Error(message)
+}
