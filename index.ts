@@ -40,6 +40,7 @@ const throwError = (message:string):never => {
 }
 
 type Hero = {
+  readonly id?: number,
   name: string,
   age: number,  
   isActive?: boolean
@@ -59,5 +60,7 @@ const newHero={
   name: 'Thor',
   age: 44,
 }
-const thor = createHero(newHero)
+const thor = Object.freeze(createHero(newHero))
 // const thor = createHero({name:'Thor',age:45})
+
+hero.id=50000
