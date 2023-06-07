@@ -74,5 +74,15 @@ const color : HexeColor = '#fff'
 // union types
 let ann : string | 3 
 ann = 'Ann'
-ann = 25
+// ann = 25
 
+// intersection types
+type HeroBasic = {
+  name: string,
+  age: number,
+}
+type HeroExtra = {
+  isActive: boolean,
+  skills: string[],
+}
+type HeroComplete = HeroBasic & HeroExtra
