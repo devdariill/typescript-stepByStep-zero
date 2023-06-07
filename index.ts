@@ -86,3 +86,16 @@ type HeroExtra = {
   skills: string[],
 }
 type HeroComplete = HeroBasic & HeroExtra
+
+// Type Indexing
+type HeroSkills = {
+  isActive: boolean,
+  address:{
+    planet: string,
+    country: string,
+  }
+}
+const addressHero: HeroSkills['address'] = {
+  planet: 'Earth',
+  country: 'USA',
+}
