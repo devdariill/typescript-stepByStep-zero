@@ -69,4 +69,10 @@ const thor = Object.freeze(createHero(newHero))
 type HexeColor = `#${string}`
 
 const color : HexeColor = '#fff'
-const color2 : HexeColor = 'fff'
+// const color2 : HexeColor = 'fff'
+
+// union types
+let ann : string | 3 
+ann = 'Ann'
+ann = 25
+
