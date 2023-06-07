@@ -99,3 +99,14 @@ const addressHero: HeroSkills['address'] = {
   planet: 'Earth',
   country: 'USA',
 }
+const address = {
+  planet: 'Earth',
+  country: 'USA',
+}
+
+type Address = typeof address
+
+const address2: Address = {
+  planet: 'Earth',
+  country: 'USA',
+}
