@@ -120,3 +120,33 @@ function createAddress(){
   }
 }
 type Address2 = ReturnType<typeof createAddress>
+//  ######################################################################
+const languages:(string|number)[] = []
+// const languages:Array<string> = []
+
+languages.push('Javascript')
+languages.push('Typescript')
+languages.push(1)
+/*
+[
+  ['x','o','x'],
+  ['x','o','x'],
+  ['x','o','x'],
+]
+ */
+type CellValue = 'x' | 'o' | ''
+type GameBoard = [
+  [CellValue,CellValue,CellValue],
+  [CellValue,CellValue,CellValue],
+  [CellValue,CellValue,CellValue],
+]
+const board:GameBoard = [
+  ['x','o','x'],
+  ['x','o','x'],
+  ['x','o','x'],
+]
+type State = ['string',(newName:string)=>void]
+// const [name1,setHero]:State=useState('Ironman')
+
+type RGBColor = [number,number,number]
+const rgb:RGBColor = [255,255,255]
