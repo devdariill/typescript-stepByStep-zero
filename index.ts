@@ -193,7 +193,14 @@ const white:RGB = [255,255,255]
     }  
   }
   
+//###################################################################### as (asercion)
+  const canvas2 = document.getElementById('canvas')
+  // const canvas = document.getElementById('canvas')
+  if (canvas2 != null && canvas2 instanceof HTMLCanvasElement) canvas2.getContext('2d')
+  if (canvas2 != null ) (canvas2 as HTMLCanvasElement).getContext('2d')
 
-  
+  const canvas = document.getElementById('canvas') as HTMLCanvasElement
+  // const canvas = document.getElementById('canvas')
+  canvas?.getContext('2d')
   
   
