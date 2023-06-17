@@ -164,4 +164,34 @@
   type RGBColor = [number,number,number]
   const rgb:RGBColor = [255,255,255]
 
-//  ###################################################################### (string|number)[]
+//  ###################################################################### Tuple readonly
+type RGB = readonly [number,number,number]
+const black:RGB = [0,0,0]
+const white:RGB = [255,255,255]
+// black.push(4)
+
+//  ###################################################################### const enum > enum
+const enum ERROR_TYPES {
+  NOT_FOUND = 404,
+  UNAUTHORIZED = 401,
+  FORBIDDEN = "FORBIDDEN",
+}
+// const ERROR_TYPES = {
+//   NOT_FOUND: 404,
+//   UNAUTHORIZED: 401,
+//   FORBIDDEN: 403,  
+// }
+function mostrarMensaje (tipoError:ERROR_TYPES){
+  if(tipoError === ERROR_TYPES.NOT_FOUND){
+    console.log('No encontrado')
+  }
+  if(tipoError === ERROR_TYPES.UNAUTHORIZED){
+    console.log('No autorizado')
+  }
+  if(tipoError === ERROR_TYPES.FORBIDDEN){
+    console.log('Prohibido')
+  }  
+}
+
+  
+
