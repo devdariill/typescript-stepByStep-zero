@@ -194,13 +194,64 @@ const white:RGB = [255,255,255]
   }
   
 //###################################################################### as (asercion)
-  const canvas2 = document.getElementById('canvas')
-  // const canvas = document.getElementById('canvas')
-  if (canvas2 != null && canvas2 instanceof HTMLCanvasElement) canvas2.getContext('2d')
-  if (canvas2 != null ) (canvas2 as HTMLCanvasElement).getContext('2d')
+const canvas2 = document.getElementById('canvas')
+// const canvas = document.getElementById('canvas')
+if (canvas2 != null && canvas2 instanceof HTMLCanvasElement) canvas2.getContext('2d')
+if (canvas2 != null ) (canvas2 as HTMLCanvasElement).getContext('2d')
 
-  const canvas = document.getElementById('canvas') as HTMLCanvasElement
-  // const canvas = document.getElementById('canvas')
-  canvas?.getContext('2d')
-  
+const canvas = document.getElementById('canvas') as HTMLCanvasElement
+// const canvas = document.getElementById('canvas')
+canvas?.getContext('2d')
+
+//###################################################################### extends
+  interface HeroInterface {
+    name: string,
+    age: number,
+    id: number,
+    saludar: ()=>void,
+  }
+  const heroInterface:HeroInterface = {
+    name: 'Ironman',
+    age: 45,
+    id: 1,
+    saludar: ()=>console.log('Hola'),
+  }
+
+  interface Producto {
+    id: number,
+    name: string,
+    price: number,
+    quantity: number,
+  }
+  interface ProductosCarrito{
+    total: number,
+    products: (Producto|Zapatilla)[],
+  }
+  interface Zapatilla extends Producto{
+    talla: number,
+  }
+  const carrito:ProductosCarrito = {
+    total: 500,
+    products: [
+      {
+        id: 1,
+        name: 'Zapatillas',
+        price: 100,
+        quantity: 1,
+        talla: 42,
+      }
+    ]
+  }
+  interface CarritoOps{
+    addProduct: (product:Producto|Zapatilla)=>void,
+    removeProduct: (id:number)=>void,
+    clearCart: ()=>void,
+  }
+  // interface CarritoOps{
+  //   add(product:Producto|Zapatilla):void,
+  //   remove(id:number):void,
+  //   clear():void,    
+  // }
+
+
   
