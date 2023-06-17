@@ -1,8 +1,8 @@
-// ######################################################################
+//######################################################################
   let c:any
   let d:unknown
 
-// ######################################################################
+//######################################################################
   function fn1(a:number):number {
       return a
   } 
@@ -14,7 +14,7 @@
   //   console.log(name)
   // }
 
-// ######################################################################
+//######################################################################
   const fn4 = (fn: (name:string)=> string|void)=>{
     fn('hello')
   }
@@ -32,20 +32,20 @@
   // }
   // fn4(sayHi) 
 
-// ######################################################################
+//######################################################################
   const sumar = (a:number, b:number):number => a + b
   const restar: (a:number, b:number) => number = (a,b) => a - b
 
-// ###################################################################### :never
+//###################################################################### :never
   // never
   const throwError = (message:string):never => {
     throw new Error(message)
 }
 
-// ###################################################################### IdManual
+//###################################################################### IdManual
   type IdManual = `${string}-${string}-${string}-${string}-${string}`
 
-// ###################################################################### readonly
+//###################################################################### readonly
   type Hero = {
     readonly id?: IdManual,
     name: string,
@@ -70,7 +70,7 @@
   }
   // const thor = createHero({name:'Thor',age:45})
 
-// ###################################################################### `#${string}`
+//###################################################################### `#${string}`
   const thor = Object.freeze(createHero(newHero))
 
   // hero.id=50000
@@ -80,13 +80,13 @@
   const color : HexeColor = '#fff'
   // const color2 : HexeColor = 'fff'
 
-// ###################################################################### string | 3
+//###################################################################### string | 3
   // union types
   let ann : string | 3 
   ann = 'Ann'
   // ann = 25
 
-// ###################################################################### HeroBasic & HeroExtra
+//###################################################################### HeroBasic & HeroExtra
   // intersection types
   type HeroBasic = {
     name: string,
@@ -98,7 +98,7 @@
   }
   type HeroComplete = HeroBasic & HeroExtra
 
-// ###################################################################### HeroSkills['address']
+//###################################################################### HeroSkills['address']
   // Type Indexing
   type HeroSkills = {
     isActive: boolean,
@@ -112,7 +112,7 @@
     country: 'USA',
   }
 
-// ###################################################################### typeof address
+//###################################################################### typeof address
   const address = {
     planet: 'Earth',
     country: 'USA',
@@ -124,7 +124,7 @@
     country: 'USA',
   }
 
-// ######################################################################ReturnType<typeof createAddress>
+//######################################################################ReturnType<typeof createAddress>
   function createAddress(){
     return{
       planet: 'Earth',
@@ -133,7 +133,7 @@
   }
   type Address2 = ReturnType<typeof createAddress>
 
-//  ###################################################################### (string|number)[]
+//###################################################################### (string|number)[]
   const languages:(string|number)[] = []
   // const languages:Array<string> = []
 
@@ -164,34 +164,36 @@
   type RGBColor = [number,number,number]
   const rgb:RGBColor = [255,255,255]
 
-//  ###################################################################### Tuple readonly
+//###################################################################### Tuple readonly
 type RGB = readonly [number,number,number]
 const black:RGB = [0,0,0]
 const white:RGB = [255,255,255]
 // black.push(4)
 
-//  ###################################################################### const enum > enum
-const enum ERROR_TYPES {
-  NOT_FOUND = 404,
-  UNAUTHORIZED = 401,
-  FORBIDDEN = "FORBIDDEN",
-}
-// const ERROR_TYPES = {
-//   NOT_FOUND: 404,
-//   UNAUTHORIZED: 401,
-//   FORBIDDEN: 403,  
-// }
-function mostrarMensaje (tipoError:ERROR_TYPES){
-  if(tipoError === ERROR_TYPES.NOT_FOUND){
-    console.log('No encontrado')
+//###################################################################### const enum > enum
+  const enum ERROR_TYPES {
+    NOT_FOUND = 404,
+    UNAUTHORIZED = 401,
+    FORBIDDEN = "FORBIDDEN",
   }
-  if(tipoError === ERROR_TYPES.UNAUTHORIZED){
-    console.log('No autorizado')
+  // const ERROR_TYPES = {
+  //   NOT_FOUND: 404,
+  //   UNAUTHORIZED: 401,
+  //   FORBIDDEN: 403,  
+  // }
+  function mostrarMensaje (tipoError:ERROR_TYPES){
+    if(tipoError === ERROR_TYPES.NOT_FOUND){
+      console.log('No encontrado')
+    }
+    if(tipoError === ERROR_TYPES.UNAUTHORIZED){
+      console.log('No autorizado')
+    }
+    if(tipoError === ERROR_TYPES.FORBIDDEN){
+      console.log('Prohibido')
+    }  
   }
-  if(tipoError === ERROR_TYPES.FORBIDDEN){
-    console.log('Prohibido')
-  }  
-}
-
   
 
+  
+  
+  
