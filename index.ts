@@ -253,5 +253,34 @@ canvas?.getContext('2d')
   //   clear():void,    
   // }
 
-
+// ###################################################################### type guard
+interface Mario{
+  company: 'Nintendo',
+  name: string,
+  saltar: ()=>void,
+}
+interface Sonic{
+  company: 'Sega',
+  name: string,
+  correr: ()=>void,
+}
+type Personaje = Mario | Sonic
+  // type guard 
+  function checkIsSonic(personaje:Personaje):personaje is Sonic{
+    return (personaje as Sonic).correr !== undefined
+  }
+  function jugar(personaje:Personaje){
+    if(checkIsSonic(personaje)){
+      personaje.correr()
+      return
+    }
+    personaje.saltar()
+  }
+  // function jugar(personaje:Personaje){
+  //   if(personaje.company === 'Nintendo'){
+  //     personaje.saltar()
+  //     return
+  //    }
+  //   personaje.correr()
+  // }
   
